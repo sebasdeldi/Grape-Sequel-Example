@@ -1,0 +1,36 @@
+language: ruby
+rvm:
+  - 2.6.5
+
+env:
+  global:
+    - RUBY_GC_MALLOC_LIMIT=90000000
+    - RUBY_GC_HEAP_FREE_SLOTS=200000
+    - TEST_DB=movies_test
+    - TEST_DB_HOST=localhost
+    - TEST_DB_USER=movies_user
+    - TEST_DB_PASSWORD=test-db-password
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c "CREATE USER \"movies_user\" WITH PASSWORD 'test-db-password';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS \"movies_test\";" -U postgres
+  - psql -c "CREATE DATABASE \"movies_test\" ENCODING 'utf8';" -U postgres
+  - psql -c "ALTER USER movies_user WITH SUPERUSER;"
+  - sequel -m db/migrations/ postgres://localhost/movies_test
+
+before_install:
+  - "echo '--colour' > ~/.rspec"
+  - "echo 'gem: --no-document' > ~/.gemrc"
+  # Solves rainbow issue: https://github.com/sickill/rainbow/issues/48
+  - gem update --system
+  - bundle update --bundler
+
+script:
+  - rspec spec -fd
+  - rubocop
+
+cache:
+  bundler: true
