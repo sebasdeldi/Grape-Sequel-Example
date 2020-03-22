@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org' do
+  gem 'dotenv-rails', '~> 2.7.5', groups: %i[development test]
   gem 'grape', '~> 1.3.1'
   gem 'interactor', '~> 3.0'
   gem 'pg', '~> 0.18.4'
@@ -13,7 +14,6 @@ source 'https://rubygems.org' do
 
   group :development do
     gem 'byebug', '~> 11.1.1'
-    gem 'dotenv-rails', '~> 2.7.5'
     gem 'rubocop', '~> 0.80.1'
   end
 end
