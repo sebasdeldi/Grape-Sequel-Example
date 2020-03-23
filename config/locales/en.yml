@@ -1,0 +1,10 @@
+en:
+  general:
+    errors:
+      invalid_format: 'invalid format'
+      invalid_date_format: 'invalid date format, please use YYYY-MM-DD format'
+      required: 'is not present'
+      uniqueness: 'already taken'
+  presentations:
+    errors:
+      presentation_full: 'the presentation is already full'
