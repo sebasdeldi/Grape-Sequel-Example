@@ -8,6 +8,7 @@ require 'interactor'
 require 'json'
 
 Dotenv.load('.env')
+Sequel.extension :migration, :core_extensions
 
 DB = Sequel.postgres(
   host: ENV['DEVELOPMENT_DB_HOST'],
