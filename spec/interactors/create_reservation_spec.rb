@@ -2,7 +2,7 @@ describe CreateReservation do
   describe '#call' do
     subject(:create_reservation) { described_class.call(params: params) }
 
-    let(:params) do 
+    let(:params) do
       { movie_id: Movie.first.id, date: Movie.first.presentations.first.date }
     end
 
@@ -11,14 +11,12 @@ describe CreateReservation do
       CreateMovie.call(params: params)
     end
 
-    before do
-      create_movie
-    end
+    before { create_movie }
 
     context 'when the presentation exists and has available places' do
       it "saves the reservation record with it's presentation reference" do
         create_reservation
-        expect(Presentation.all.map { |p| p.id })
+        expect(Presentation.all.map(&:id))
           .to include(Reservation.first.presentation_id)
       end
 
@@ -34,9 +32,7 @@ describe CreateReservation do
     end
 
     context 'when reservation fails' do
-      before do
-        create_reservation
-      end
+      before { create_reservation }
 
       context 'when provided movie id is not found' do
         let(:params) { { movie_id: -1 } }

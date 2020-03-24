@@ -19,6 +19,18 @@ module Controllers
             end
           end
         end
+
+        params do
+          optional :start_date, type: Date
+          optional :finish_date, type: Date
+        end
+        get do
+          result = ListReservations.call(params: declared(params))
+          return result.reservations if result.success?
+
+          status(400)
+          { error: result.error }
+        end
       end
     end
   end
