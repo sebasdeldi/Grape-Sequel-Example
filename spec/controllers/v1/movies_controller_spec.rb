@@ -56,7 +56,7 @@ describe Controllers::V1::MoviesController do
       end
     end
 
-    context 'when search success' do
+    context 'when search succeeds' do
       let(:create_movie) do
         params = JSON.parse(MoviesStubs.movie_creation_json).deep_symbolize_keys
         CreateMovie.call(params: params)
