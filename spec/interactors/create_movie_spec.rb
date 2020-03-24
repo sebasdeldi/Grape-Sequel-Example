@@ -39,6 +39,10 @@ describe CreateMovie do
       it 'marks the context as failed' do
         expect(create_movie).to be_a_failure
       end
+
+      it 'returns errors' do
+        expect(create_movie.errors).not_to be_blank
+      end
     end
   end
 end

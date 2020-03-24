@@ -8,3 +8,4 @@ en:
   presentations:
     errors:
       presentation_full: 'the presentation is already full'
+      invalid_week_day: 'day not recognized, please use one of the following days: monday, tuesday, wednesday, thursday, friday, saturday or sunday'
