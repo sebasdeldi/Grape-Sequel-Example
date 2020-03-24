@@ -15,6 +15,8 @@ DB = Sequel.postgres(
   password: ENV['DEVELOPMENT_DB_PASSWORD'],
   database: ENV['DEVELOPMENT_DB']
 )
+# Performs migrations
+Sequel::Migrator.apply(DB, 'db/migrations')
 
 Dir["#{File.dirname(__FILE__)}/app/models/*.rb"].sort.each { |file| require file }
 Dir["#{File.dirname(__FILE__)}/app/controllers/**/*.rb"].sort.each { |file| require file }
