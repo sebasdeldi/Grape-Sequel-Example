@@ -8,6 +8,7 @@ class CreateMovie
     movie = movie(params)
     movie.presentations_attributes = presentations(params[:presentations])
     movie.valid? ? movie.save : context.fail!(errors: movie.errors)
+    context.movie = MovieSerializer.serialize_movie(movie)
   end
 
   private

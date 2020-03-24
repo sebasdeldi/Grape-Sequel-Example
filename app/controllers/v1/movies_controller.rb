@@ -14,10 +14,10 @@ module Controllers
         end
         post do
           result = CreateMovie.call(params: declared(params))
-          return declared(params) if result.success?
+          return result.movie if result.success?
 
           status(400)
-          { errors: result.errors }
+          { error: result.errors }
         end
       end
     end

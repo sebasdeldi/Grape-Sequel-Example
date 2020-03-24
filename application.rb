@@ -5,6 +5,7 @@ require 'sequel'
 require 'dotenv'
 require 'byebug'
 require 'interactor'
+require 'json'
 
 Dotenv.load('.env')
 
@@ -19,6 +20,8 @@ Dir["#{File.dirname(__FILE__)}/app/models/*.rb"].sort.each { |file| require file
 Dir["#{File.dirname(__FILE__)}/app/controllers/**/*.rb"].sort.each { |file| require file }
 Dir["#{File.dirname(__FILE__)}/config/**/*.rb"].sort.each { |file| require file }
 Dir["#{File.dirname(__FILE__)}/app/interactors/*.rb"].sort.each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/app/serializers/*.rb"].sort.each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/spec/stubs/*.rb"].sort.each { |file| require file }
 
 # Translation and constants
 I18n.load_path << Dir["#{File.dirname(__FILE__)}/config/locales/*.yml"]

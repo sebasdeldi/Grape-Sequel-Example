@@ -1,7 +1,7 @@
 describe Movie do
   subject(:movie) { Movie.new }
 
-  describe "when a field that can't be blank is blank" do
+  context "when a field that can't be blank is blank" do
     before do
       movie.valid?
     end
@@ -19,7 +19,7 @@ describe Movie do
     end
   end
 
-  describe 'when image_url has a non url format' do
+  context 'when image_url has a non url format' do
     before do
       movie.image_url = Faker::Internet.email
       movie.valid?
@@ -30,7 +30,7 @@ describe Movie do
     end
   end
 
-  describe 'when all fields are correct' do
+  context 'when all fields are correct' do
     let(:movie) { build(:movie) }
 
     before do

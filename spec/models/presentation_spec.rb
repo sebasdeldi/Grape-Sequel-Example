@@ -1,7 +1,7 @@
 describe Presentation do
   subject(:presentation) { Presentation.new }
 
-  describe "when a field that can't be blank is blank" do
+  context "when a field that can't be blank is blank" do
     before do
       presentation.valid?
     end
@@ -15,7 +15,7 @@ describe Presentation do
     end
   end
 
-  describe 'when date has an incorrect format' do
+  context 'when date has an incorrect format' do
     before do
       presentation.date = Faker::Internet.email
       presentation.valid?
@@ -26,7 +26,7 @@ describe Presentation do
     end
   end
 
-  describe 'when a presentation is full and another place is tried to be reserved' do
+  context 'when a presentation is full and another place is tried to be reserved' do
     before do
       presentation.available_places = -1
       presentation.valid?
@@ -38,7 +38,7 @@ describe Presentation do
     end
   end
 
-  describe 'when all fields are correct' do
+  context 'when all fields are correct' do
     let(:movie) { build(:movie) }
     let(:presentation) { build(:presentation, movie: movie) }
 
