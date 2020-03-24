@@ -5,6 +5,7 @@ source 'https://rubygems.org' do
   gem 'i18n', '~> 1.8.2'
   gem 'interactor', '~> 3.0'
   gem 'pg', '~> 0.18.4'
+  gem 'rake', '>= 0.8.7'
   gem 'sequel', '~> 5.30.0'
 
   group :test do
