@@ -34,6 +34,7 @@ module API
     prefix :api
 
     mount Controllers::V1::MoviesController
+    mount Controllers::V1::ReservationsController
   end
 end
 

@@ -5,7 +5,11 @@ en:
       invalid_date_format: 'invalid date format, please use YYYY-MM-DD format'
       required: 'is not present'
       uniqueness: 'already taken'
+  movies:
+    errors:
+      not_found: 'movie not found with the provided id'
   presentations:
     errors:
       presentation_full: 'the presentation is already full'
       invalid_week_day: 'day not recognized, please use one of the following days: monday, tuesday, wednesday, thursday, friday, saturday or sunday'
+      not_available_for_date: "movie doesn't have a presentation not available for the date provided"
