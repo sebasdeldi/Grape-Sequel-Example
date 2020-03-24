@@ -1,6 +1,6 @@
 module Controllers
   module V1
-    # Movie creation endpoint => /api/v1/movies
+    # Movies related endpoints
     class MoviesController < Grape::API
       version 'v1', using: :path
       resources :movies do
