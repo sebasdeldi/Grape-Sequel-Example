@@ -1,7 +1,7 @@
 describe Reservation do
   subject(:reservation) { Reservation.new }
 
-  describe "when a field that can't be blank is blank" do
+  context "when a field that can't be blank is blank" do
     before do
       reservation.valid?
     end
@@ -17,7 +17,7 @@ describe Reservation do
     end
   end
 
-  describe 'when reservation code is already taken' do
+  context 'when reservation code is already taken' do
     let(:movie) { build(:movie) }
     let(:presentation) { build(:presentation, movie: movie) }
     let(:reservation) { build(:reservation, presentation: presentation) }
@@ -42,7 +42,7 @@ describe Reservation do
     end
   end
 
-  describe 'when all fields are correct' do
+  context 'when all fields are correct' do
     let(:movie) { build(:movie) }
     let(:presentation) { build(:presentation, movie: movie) }
     let(:reservation) { build(:reservation, presentation: presentation) }

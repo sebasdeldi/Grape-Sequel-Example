@@ -3,7 +3,10 @@
 # Model for the 'movies' db table
 class Movie < Sequel::Model
   plugin :validation_helpers
+  plugin :nested_attributes
+  plugin :json_serializer
   one_to_many :presentations
+  nested_attributes :presentations
 
   def validate
     super
