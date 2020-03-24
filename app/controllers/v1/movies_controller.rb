@@ -19,6 +19,17 @@ module Controllers
           status(400)
           { error: result.errors }
         end
+
+        params do
+          optional :week_day, type: String
+        end
+        get do
+          result = ListMovies.call(week_day: declared(params)[:week_day])
+          return result.movies if result.success?
+
+          status(400)
+          { error: result.error }
+        end
       end
     end
   end

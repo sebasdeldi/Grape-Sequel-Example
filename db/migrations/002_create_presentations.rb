@@ -5,6 +5,7 @@ Sequel.migration do
       foreign_key :movie_id, :movies, null: false
       Integer :available_places, default: 10
       Date :date, null: false
+      String :week_day
     end
   end
 end

@@ -14,7 +14,10 @@ class CreateMovie
   private
 
   def presentations(presentations_params)
-    presentations_params.map { |presentation| presentation.merge(available_places: 10) }
+    presentations_params.map do |presentation|
+      week_day = presentation[:date].to_date.strftime('%A').downcase
+      presentation.merge(available_places: 10, week_day: week_day)
+    end
   end
 
   def movie(params)
