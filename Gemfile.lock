@@ -84,7 +84,7 @@ GEM
     parser (2.7.0.5)
       ast (~> 2.4.0)
     pg (0.18.4)
-    rack (2.2.2)
+    rack (2.2.6.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-test (1.1.0)
